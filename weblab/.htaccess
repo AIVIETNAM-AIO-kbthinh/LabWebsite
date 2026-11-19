@@ -1,0 +1,38 @@
+# ====================================================
+# ISI LAB v3 - URL rewriting (clean URLs)
+# Requires Apache mod_rewrite to be enabled.
+# ====================================================
+Options -Indexes -MultiViews
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Keep Admin CSS files accessible as real static files.
+    RewriteRule ^admin/(admin\.css|admin-extra\.css)$ - [L]
+
+    # IMPORTANT: The physical /admin folder exists for CSS.
+    # Force all Admin pages such as /admin/members/new through the main router.
+    RewriteRule ^admin/?$ index.php [L]
+    RewriteRule ^admin/.+$ index.php [L]
+
+    # Keep existing real files and folders accessible.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Send every clean URL to the front controller.
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Security: deny direct access to sensitive folders/files
+<FilesMatch "^(config\.php|composer\.json|composer\.lock)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# UTF-8 default
+AddDefaultCharset utf-8

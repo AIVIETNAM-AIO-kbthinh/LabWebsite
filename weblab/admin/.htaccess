@@ -1,0 +1,10 @@
+Options -Indexes -MultiViews
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Allow Admin CSS files to load normally.
+    RewriteRule ^(admin\.css|admin-extra\.css)$ - [L]
+
+    # Route all other /admin/* requests to the main app router.
+    RewriteRule ^.*$ ../index.php [L]
+</IfModule>

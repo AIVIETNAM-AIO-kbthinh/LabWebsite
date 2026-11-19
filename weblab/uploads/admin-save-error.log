@@ -1,0 +1,12 @@
+[2026-07-29 14:12:00] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'image' cannot be null
+[2026-08-26 15:04:29] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-08-26 15:04:46] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-08-26 15:05:04] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:29:05] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:29:17] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:29:44] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:29:52] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:30:01] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:30:16] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:30:36] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null
+[2026-09-15 11:30:56] gallery | SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sort_order' cannot be null

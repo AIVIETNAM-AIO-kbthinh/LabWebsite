@@ -1,0 +1,27 @@
+/* Logo replacement patch for ISI Lab */
+.isilab-new-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Header/navbar logo box */
+.logo-icon .isilab-new-logo-img,
+.brand-icon .isilab-new-logo-img,
+.nav-logo .isilab-new-logo-img,
+.navbar .logo .isilab-new-logo-img {
+  padding: 3px;
+}
+
+/* About section center/core logo */
+.about .tech-core .isilab-new-logo-img,
+#about .tech-core .isilab-new-logo-img,
+.about .core-icon .isilab-new-logo-img,
+#about .core-icon .isilab-new-logo-img,
+.about .orbit-center .isilab-new-logo-img,
+#about .orbit-center .isilab-new-logo-img,
+.about .center-icon .isilab-new-logo-img,
+#about .center-icon .isilab-new-logo-img {
+  padding: 8px;
+}

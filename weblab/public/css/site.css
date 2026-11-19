@@ -1,0 +1,342 @@
+/* =====================================================
+   ISI LAB v3 - Site-level extra styles
+   Complements style.css with components added in v3.
+   ===================================================== */
+
+/* ---- Page hero (banner ngắn cho từng trang sub) ---- */
+.page-hero {
+    position: relative;
+    padding: 140px 0 60px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at top, rgba(0,188,212,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+.page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(rgba(0,188,212,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,188,212,.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    pointer-events: none;
+}
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero .crumbs {
+    font-family: 'Nunito Sans', monospace;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    opacity: .85;
+}
+.page-hero h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    font-weight: 800;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 14px;
+}
+.page-hero .subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* ---- Flash messages ---- */
+.flash-stack {
+    position: fixed; top: 90px; right: 20px;
+    z-index: 9999;
+    display: flex; flex-direction: column; gap: 10px;
+    max-width: 380px;
+}
+.flash {
+    padding: 14px 18px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    font-weight: 500;
+    animation: flashIn .35s ease-out;
+}
+.flash-success { background: linear-gradient(135deg, #16a34a, #22c55e); }
+.flash-error   { background: linear-gradient(135deg, #dc2626, #ef4444); }
+.flash-info    { background: linear-gradient(135deg, #1976d2, #00bcd4); }
+@keyframes flashIn { from { opacity: 0; transform: translateY(-12px) } to { opacity: 1; transform: none } }
+
+/* ---- Filter bar ---- */
+.filter-bar {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center;
+    margin: 0 0 40px;
+}
+.filter-bar select, .filter-bar a.reset {
+    padding: 10px 16px;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    transition: all .25s;
+}
+.filter-bar select:hover, .filter-bar a.reset:hover { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,188,212,.15); }
+.filter-bar a.reset { text-decoration: none; }
+
+/* ---- Project / news detail ---- */
+.detail-wrap {
+    max-width: 880px; margin: 0 auto;
+}
+.detail-cover {
+    width: 100%; max-height: 460px; object-fit: cover;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    margin: 30px 0;
+}
+.detail-meta {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 26px;
+    font-family: 'Nunito Sans', monospace;
+    font-size: 13px;
+}
+.detail-meta .chip {
+    background: rgba(0,188,212,.12);
+    color: var(--primary-dark);
+    padding: 4px 12px;
+    border-radius: 14px;
+}
+.detail-body p {
+    color: var(--text-secondary);
+    line-height: 1.85;
+    font-size: 1.05rem;
+}
+.back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 40px;
+}
+.back-link:hover { color: var(--primary-dark); }
+
+/* ---- 404 ---- */
+.error-page {
+    min-height: 70vh;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px;
+    text-align: center;
+    padding: 100px 20px;
+}
+.error-page .num {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(5rem, 18vw, 11rem);
+    background: var(--gradient-neon);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    line-height: 1;
+}
+
+/* ---- Featured news on home ---- */
+.section-news .news-grid .news-card { background: var(--card-bg); }
+
+/* ---- Publications group by year ---- */
+.pub-year-group { margin-bottom: 40px; }
+.pub-year-group h3 {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+/* ---- Member card actions and member detail ---- */
+.member-card {
+    display: flex;
+    flex-direction: column;
+}
+.member-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.member-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+.member-view-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: .9rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+.member-view-link:hover {
+    gap: 10px;
+    color: var(--primary-dark);
+}
+.member-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+    gap: 50px;
+    align-items: start;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+.member-detail-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-card);
+}
+.member-detail-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+.member-detail-content {
+    padding: 28px 0;
+}
+.member-detail-title {
+    margin-bottom: 22px;
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.member-detail-bio {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+.member-detail-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+.member-detail-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    background: var(--card-bg);
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.member-detail-links a:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+@media (max-width: 760px) {
+    .member-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .member-detail-photo {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .member-detail-content {
+        padding-top: 10px;
+    }
+}
+
+
+
+/* ============================================
+   20/11 TEACHERS' DAY - home hero badge
+   ============================================ */
+.td-home-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    padding: 6px 6px 6px 16px;
+    margin-bottom: 28px;
+    border-radius: 999px;
+    background:
+        linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+        linear-gradient(120deg, #c93a4f, #e6c784, #a3172d) border-box;
+    border: 1.5px solid transparent;
+    box-shadow: 0 10px 30px -12px rgba(163, 23, 45, 0.45);
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.td-home-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -12px rgba(163, 23, 45, 0.6);
+}
+.td-home-badge-icon {
+    font-size: 1.15rem;
+    animation: tdHomeSway 2.6s ease-in-out infinite;
+}
+.td-home-badge-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #c93a4f, #7a0f20);
+    color: #fff;
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+.td-home-badge:hover .td-home-badge-cta i { transform: translateX(3px); }
+.td-home-badge-cta i { transition: transform 0.25s ease; }
+@keyframes tdHomeSway {
+    0%, 100% { transform: rotate(-12deg); }
+    50%      { transform: rotate(12deg); }
+}
+@media (max-width: 600px) {
+    .td-home-badge { flex-wrap: wrap; justify-content: center; text-align: center; padding: 10px 14px; border-radius: 20px; }
+    .td-home-badge-cta { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .td-home-badge-icon { animation: none; }
+}
+
+/* ============================================
+   GSAP animation guard (see public/js/site-anim.js)
+   Elements stay hidden only until GSAP sets their start state;
+   a 3s timeout in the layout removes the guard if scripts fail.
+   ============================================ */
+.gsap-pending [data-aos],
+.gsap-pending .page-hero .container > * {
+    opacity: 0;
+}
+
+/* ============================================
+   GSAP ScrollSmoother (see public/js/site-anim.js)
+   ============================================ */
+html.has-smoother { scroll-behavior: auto; }   /* native smooth-scroll would fight the smoother */
+#smooth-wrapper { z-index: 3; }                 /* same layer the sections used: above particles & cursor glow */
+#smooth-content { overflow: visible; width: 100%; }
